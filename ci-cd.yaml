@@ -1,12 +1,5 @@
-name: CI/CD
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
-  build-and-deploy:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,15 +9,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Run tests
+        run: npm test  # Add your testing commands here
 
-      - name: Deploy
-        run: |
-          sshpass -p ${{ secrets.SSH_PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.DROPLET_IP }} << EOF
-            cd /path/to/your/application
-            git pull origin main
-            npm install
-            npm run build
-            pm2 restart app
-          EOF
+      - name: Build the application
+        run: npm run build  # Only build, no deployment
