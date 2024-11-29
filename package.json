@@ -1,7 +1,12 @@
 {
-    "scripts": {
-      "test": "jest",
-      "build": "webpack --config webpack.config.js"
-    }
+  "name": "my-test-app",
+  "version": "1.0.0",
+  "description": "A test application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
-  
+}
