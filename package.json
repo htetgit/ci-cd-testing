@@ -1,0 +1,7 @@
+{
+    "scripts": {
+      "test": "jest",
+      "build": "webpack --config webpack.config.js"
+    }
+  }
+  
